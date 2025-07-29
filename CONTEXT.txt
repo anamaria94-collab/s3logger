@@ -1,0 +1,99 @@
+
+1. Client Overview
+The client is a small consulting firm operating in the legal and administrative services sector. Their business involves managing and processing documentation submitted by external collaborators and clients, often in the form of files exchanged via email or local drives. As their operations expanded, they began experiencing limitations in their file handling process, particularly around traceability, scalability, and security.
+
+2. Initial Situation
+Before the engagement, the client relied on manual methods to collect and store files—primarily email inboxes, shared folders, and local devices. While this approach was sufficient during the early stages of their operations, it quickly became problematic as the team grew and collaboration with external partners increased.
+
+Key challenges included:
+
+Lack of centralized and secure cloud storage
+
+No consistent mechanism for tracking file submissions
+
+Limited access control and visibility
+
+No automation or event-driven processing
+
+Increased risk of data loss, duplication, and compliance failure
+
+3. Project Requirements
+The client approached us to design a lightweight backend system that would allow their internal users to:
+
+Upload files securely to a cloud environment
+
+Automatically log basic metadata such as filename, timestamp, and file size
+
+Avoid managing infrastructure (i.e., no servers or custom-built apps)
+
+Maintain flexibility for future integration or automation
+
+The system needed to be cloud-native, minimal, and easy to deploy or replicate.
+
+4. Proposed Solution
+We proposed a solution built entirely on AWS managed services, following a serverless and modular approach. The system architecture included:
+
+An Amazon S3 bucket to store uploaded files
+
+A DynamoDB table to track metadata for each file (filename, timestamp, size)
+
+Optional use of Lambda for event-based automation (e.g., metadata logging or validation)
+
+Terraform to provision the infrastructure and maintain consistency across environments
+
+Local scripts or AWS CLI for interaction with the system during the prototype phase
+
+This design met the client's requirements while allowing for easy scaling and minimal maintenance overhead.
+
+5. Technology Justification
+Amazon S3 (Simple Storage Service)
+S3 was selected as the file storage layer due to its:
+
+High durability and availability for object storage
+
+Built-in access control and encryption features
+
+Scalability without provisioning or capacity planning
+
+Compatibility with CLI, SDK, and third-party tools
+
+It offered a secure and cost-effective solution that aligned with the client's need for simplicity and reliability.
+
+Amazon DynamoDB
+DynamoDB was used to log file metadata because it:
+
+Supports high-performance, low-latency writes
+
+Requires no server management or scaling efforts
+
+Is cost-efficient under the pay-per-request model
+
+Integrates well with other AWS services, making future automation easy
+
+This made it a natural choice for storing structured, timestamped logs without introducing unnecessary complexity.
+
+6. IAM and Security Design
+IAM (Identity and Access Management) was implemented to control access to the infrastructure and ensure security best practices.
+
+During deployment, Terraform was executed using an IAM user with scoped privileges to provision the necessary S3 and DynamoDB resources.
+
+For runtime access, the architecture supports the use of IAM roles or policies that allow:
+
+s3:PutObject permissions to the specific bucket
+
+dynamodb:PutItem permissions to the metadata table
+
+The system is structured to comply with the principle of least privilege and can be extended with role-based access controls, encryption policies, and logging if required in a production context.
+
+7. Outcomes
+The delivered prototype meets the client's requirements by providing:
+
+A scalable and secure method for file ingestion
+
+An automated and centralized metadata tracking mechanism
+
+A reproducible infrastructure-as-code setup using Terraform
+
+Flexibility for CLI-based or programmatic interaction
+
+This backend-only cloud solution provides the foundation for future integrations (e.g., form submission, email-based ingestion, or dashboard visualizations) with minimal additional engineering effort.
