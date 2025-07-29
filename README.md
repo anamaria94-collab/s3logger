@@ -17,6 +17,7 @@ Before the project, the client used shared folders and email attachments to mana
 - No automation or validation of received files
 - Limited access control and traceability
 
+
 ### Requirements
 
 The client needed a solution that could:
@@ -44,3 +45,4 @@ This architecture meets the client's requirements while staying low-cost, server
 
 ## Architecture
 
+Check the architecture: https://www.mermaidchart.com/play?utm_source=mermaid_js&utm_medium=editor_selection&utm_campaign=playground#pako:eNpdkMFKAzEQhl9lWCi0YE9724OwtQo9iKVb8bDdQzaZ1mg2KclE7YrgK_iKPolJtqXFUyY_38z8_3xm3AjMimyrzDt_ZpZgPdtogNEIbpRETQjoCK02UeVJGj_ulWEC7RGZbPSxpfQU_pKzXhodOoF5Mlb2_SBEypEbV-uqgNI53-HKKJxE3YZiXC_Ke4hSAacdtx_IPYXuKDcJ3Rsl-WGAl6kO01QIAC4vlp4e2hfkdAXioFlnRBu1BWHXnI2upDPWIZRPVTKV13WVw8zzV6QifJXZ7dD-fv9spULXNBESoq3reZo5n8GatdHmBdohMcGIRfq45k5558z5CiTfLu4I0-l1vEd6Y_5UDOnOOQcq_ycEMxudff0B_3mbEQ
